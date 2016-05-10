@@ -46,7 +46,7 @@ _If you're looking for a cross-compiler solution, chances are you already have a
 
 1. Burn `2015-09-24-raspbian-jessie.img` to an SD card and boot a Raspberry Pi.
 1. Download and unarchive OpenFrameworks.
-1. Run install_dependencies.sh.
+1. cd to `scripts/linux/debian` and run `sudo ./install_dependencies.sh`.
 1. Remove the card from the Raspberry Pi and use `dd` to make an image file.
 1. _Only do this if your card isn't based on 2015-09-24-raspbian-jessie.img_.  Calculate the offsets to the boot and root partitions on the file.  I've included a tool to calculate these for you automatically (only works on OS X).  Run `./tool.py offsets <my_image.img>`.
 1. Copy the output of this tool to the top of `playbook.yml`.
