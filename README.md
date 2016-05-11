@@ -1,7 +1,7 @@
 
 # Introduction
 
-_Note #1: this has been rewritten for OpenFrameworks 0.9 and RPI2 (armv7) on Raspbian Jessie mostly based on work by @jvcleave_
+_Note #1: this has been rewritten for openFrameworks 0.9.3 and RPI3 (armv7) on Raspbian Jessie mostly based on work by @jvcleave_
 
 _Note #2: you can ignore all the NFS booting stuff here if you aren't planning to NFS boot your Pi.  This system works great as a cross-compiler only_
 
@@ -10,13 +10,13 @@ This package uses Vagrant and Ansible to spin up a virtual machine that runs on 
 - Cross-compiles for the Raspberry Pi armv7l architecture.
 - NFS boots one or more Raspberry Pis.  The root partition is loop-mounted from a .img file, so you can later dd it to an SD card for standalone operation.
 
-Here, Vagrant automates the process of setting up a Virtualbox virtual machine and Ansible automates the process of setting up the cross-compiler, the NFS server, and OpenFrameworks.
+Here, Vagrant automates the process of setting up a VirtualBox virtual machine and Ansible automates the process of setting up the cross-compiler, the NFS server, and openFrameworks.
 
 ## Why cross-compile?
 
-The Raspberry Pi is slow.  This environment will let you compile OpenFrameworks applications on your fast desktop.
+The Raspberry Pi is slow.  This environment will let you compile openFrameworks applications on your fast desktop.
 
-Though I built this virtual machine with OpenFrameworks in mind, it'll work just fine for any cross-compiling task.
+Though I built this virtual machine with openFrameworks in mind, it'll work just fine for any cross-compiling task.
 
 ## Why NFS-boot?
 
@@ -31,24 +31,24 @@ The magic comes when you're building a cluster of Raspberry Pis.  There's no nee
 ## Prerequisites
 
 1. Install [VirtualBox](https://www.virtualbox.org/). Or Parallels.  I actually use this with Parallels.
-1. Install [vagrant](http://www.vagrantup.com/).
+1. Install [vagrant](http://www.vagrantup.com/) and [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest).
 1. Install [Ansible](http://ansible.com).  I used pip.
 
 ## Other Dependencies
 
 1. Clone this repository and cd into it.
-1. Download your preferred Raspberry Pi SD card image.  I'm using [2015-09-24-raspbian-jessie.img](http://downloads.raspberrypi.org/raspbian_latest).
-1. Download OpenFrameworks-0.9 for armv7.  Leave it compressed.
+1. Download your preferred Raspberry Pi SD card image.  I'm using [2016-03-18-raspbian-jessie.img](http://downloads.raspberrypi.org/raspbian_latest).
+1. Download [openFrameworks v0.9.3 for armv7](http://openframeworks.cc/versions/v0.9.3/of_v0.9.3_linuxarmv7l_release.tar.gz).  Leave it compressed.
 
 ## Get the image ready
 
 _If you're looking for a cross-compiler solution, chances are you already have an SD card with oF installed.  But just in case..._
 
-1. Burn `2015-09-24-raspbian-jessie.img` to an SD card and boot a Raspberry Pi.
-1. Download and unarchive OpenFrameworks.
+1. Burn `2016-03-18-raspbian-jessie.img` to an SD card and boot a Raspberry Pi.
+1. Download and unarchive openFrameworks.
 1. cd to `scripts/linux/debian` and run `sudo ./install_dependencies.sh`.
 1. Remove the card from the Raspberry Pi and use `dd` to make an image file.
-1. _Only do this if your card isn't based on 2015-09-24-raspbian-jessie.img_.  Calculate the offsets to the boot and root partitions on the file.  I've included a tool to calculate these for you automatically (only works on OS X).  Run `./tool.py offsets <my_image.img>`.
+1. _Only do this if your card isn't based on 2016-03-18-raspbian-jessie.img_.  Calculate the offsets to the boot and root partitions on the file.  I've included a tool to calculate these for you automatically (only works on OS X).  Run `./tool.py offsets <my_image.img>`.
 1. Copy the output of this tool to the top of `playbook.yml`.
 
 ## Create the virtual machine
