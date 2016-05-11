@@ -3,7 +3,7 @@
   remote_user: vagrant
   sudo: yes
   vars:
-    of_version: of_v0.9.3_linuxarmv7l_release
+    of_version: of_v0.9.3_linuxarmv6l_release
     image: rpi.img
     offset_boot: 4194304
     offset_root: 67108864

@@ -38,7 +38,7 @@ The magic comes when you're building a cluster of Raspberry Pis.  There's no nee
 
 1. Clone this repository and cd into it.
 1. Download your preferred Raspberry Pi SD card image.  I'm using [2016-03-18-raspbian-jessie.img](http://downloads.raspberrypi.org/raspbian_latest).
-1. Download [openFrameworks v0.9.3 for armv7](http://openframeworks.cc/versions/v0.9.3/of_v0.9.3_linuxarmv7l_release.tar.gz).  Leave it compressed.
+1. Download [openFrameworks v0.9.3 for armv6](http://openframeworks.cc/versions/v0.9.3/of_v0.9.3_linuxarmv6l_release.tar.gz) to the repository root.  Leave it compressed. Note: I was not able to compile oF for armv7. It's not clear if this is resolved (https://github.com/openframeworks/openFrameworks/issues/4823) so in the meantime I'm sticking with oF for armv6.
 
 ## Get the image ready
 
