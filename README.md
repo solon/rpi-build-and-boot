@@ -74,7 +74,7 @@ When you're ssh'ed into your virtual machine, you can access the root partition 
 From your vagrant shell:
 
     cd /opt/openframeworks/apps/myApps/emptyExample
-    make
+    IS_RASPBIAN=1 make
 
 From your Raspberry Pi:
 
